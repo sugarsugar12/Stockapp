@@ -22,10 +22,11 @@
       
       <p class="card__summary">
       <span class="stock-controls">
-      <%= button_to "-", { controller: "products", action: "update_stock", id: product.id, direction: "down" }, remote: true, method: :post, class: 'stock-control minus' %>
+      
        ストック数:
       <span id="stock_<%= product.id %>"><%= product.stock %></span>個
       <%= button_to "+", { controller: "products", action: "update_stock", id: product.id, direction: "up" }, remote: true, method: :post, class: 'stock-control plus' %>
+      <%= button_to "-", { controller: "products", action: "update_stock", id: product.id, direction: "down" }, remote: true, method: :post, class: 'stock-control minus' %>
       </span>
     
       </p>
