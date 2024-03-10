@@ -1,0 +1,52 @@
+<% if user_signed_in? %>
+  <div class="greeting">
+  ♡ーー　<%#= link_to "#{current_user.name}", user_path(current_user.id), class: :greeting__link%>
+      さんの日用品管理　ーー♡
+
+
+   <div class="card__wrapper">
+   <% @products.each_slice(6) do |products| %>
+      <div class="card-row">
+   <% products.each do |product| %>
+   <div class="card">
+    <%= link_to edit_product_path(product), class: :card__img do %>
+     <%= image_tag product.image, size: "200x200", class: "product-image" %>
+
+    <% end %>
+
+    <div class="card__body">
+      <%= link_to product.title, edit_product_path(product), class: :card__title%>
+      <p class="card__summary">
+        カテゴリー: <%= product.category.kinds %> 
+      </p>
+      
+      <p class="card__summary">
+      <span class="stock-controls">
+      <%= button_to "-", { controller: "products", action: "update_stock", id: product.id, direction: "down" }, remote: true, method: :post, class: 'stock-control minus' %>
+       ストック数:
+      <span id="stock_<%= product.id %>"><%= product.stock %></span>個
+      <%= button_to "+", { controller: "products", action: "update_stock", id: product.id, direction: "up" }, remote: true, method: :post, class: 'stock-control plus' %>
+      </span>
+    
+      </p>
+
+      <p class="card__summary">
+        価格:<%= product.price %>円
+      </p>
+      <p class="card__summary">
+        メモ:<%= product.memo %>
+      </p>
+      <%= link_to "削除する", "/products/#{product.id}", data: { turbo_method: :delete }, class: :prototype__btn %>
+           </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  
+<% else %>
+ <div class="nav__right">
+  <%= link_to "新規会員登録", new_user_registration_path, class: :nav__logout %>
+  <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+  </div>
+<% end %>

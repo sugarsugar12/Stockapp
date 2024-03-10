@@ -1,3 +1,10 @@
+<% if user_signed_in? %>
+  <div class="nav__right">
+  <%= link_to "新規投稿", new_product_path, class: :nav__btn %>
+  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__logout %>
+  </div>
+<% end %>
+
 <!DOCTYPE html>
 <html>
   <head>

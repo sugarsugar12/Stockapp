@@ -1,0 +1,81 @@
+/* カードのスタイル */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: calc(16.666% - 20px); /* 6列に並べる場合 */
+  float: left;
+  box-sizing: border-box;
+}
+
+.card-row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 商品画像 */
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+/* タイトルのスタイル */
+.card__title {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* カテゴリーのスタイル */
+.card__summary .stock-controls {
+  display: block;
+}
+
+/* ストック数とストックコントロールのスタイル */
+.stock-controls {
+  margin-top: 5px;
+}
+
+.stock-control {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.stock-control:hover {
+  background-color: #45a049;
+}
+
+/* メモのスタイル */
+.card__summary p {
+  margin: 5px 0;
+}
+
+/* 削除ボタンのスタイル */
+.prototype__btn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.prototype__btn:hover {
+  background-color: #d32f2f;
+}
