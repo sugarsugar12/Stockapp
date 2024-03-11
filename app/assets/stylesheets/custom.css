@@ -15,7 +15,6 @@
   clear: both;
 }
 
-/* 商品画像 */
 .product-image {
   width: 100%;
   height: auto;
@@ -28,29 +27,31 @@
   text-decoration: none;
 }
 
-/* カテゴリーのスタイル */
-.card__summary .stock-controls {
-  display: block;
-}
-
-/* ストック数とストックコントロールのスタイル */
 .stock-controls {
-  margin-top: 5px;
+  align-items: center; /* 垂直方向に中央揃え */
 }
 
 .stock-control {
   background-color: #4caf50;
   border: none;
   color: white;
-  padding: 5px 10px;
+  padding: 5px 10px; /* ボタンの基本サイズ */
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 16px; /* ボタンの基本サイズ */
   margin: 2px 2px;
   cursor: pointer;
   border-radius: 5px;
 }
+
+.stock-control.plus {
+  padding: 4px 7px; /* プラスボタンのサイズを大きくする */
+}
+
+.stock-control.minus {
+  padding: 4px 9px; /* マイナスボタンのサイズを小さくする */
+}
+
 
 .stock-control:hover {
   background-color: #45a049;
