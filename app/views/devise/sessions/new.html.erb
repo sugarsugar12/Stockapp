@@ -1,6 +1,13 @@
 <div class="contents row">
   <div class="container">
+  <%= link_to "新規登録はこちら", new_user_registration_path %>
+
     <h2>Log in</h2>
+
+    <% if alert %>
+     <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -18,3 +25,4 @@
     <% end %>
   </div>
 </div>
+
