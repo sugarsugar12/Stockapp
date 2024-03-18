@@ -36,7 +36,6 @@ class ProductsController < ApplicationController
     product.destroy
     redirect_to '/'
   end
-
   
   def update_stock
     @product = Product.find(params[:id])
@@ -56,6 +55,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-      params.require(:product).permit(:title, :stock, :price, :memo, :image, :category_id).merge(user_id: current_user.id)
+      params.require(:product).permit(:title, :stock, :price, :memo, :category_id).merge(user_id: current_user.id)
   end
 end
